@@ -1,0 +1,81 @@
+<assemblies timestamp="07/09/2023 01:12:43">
+  <assembly name="/projects/challenge/ProductOrderApi.Tests/bin/Debug/net6.0/ProductOrderApi.Tests.dll" run-date="2023-07-09" run-time="01:12:43" total="16" passed="12" failed="4" skipped="0" time="6.690" errors="0">
+    <errors />
+    <collection total="16" passed="12" failed="4" skipped="0" name="Test collection for ProductOrderApi.Tests.ApiTests" time="2.594">
+      <test name="ProductOrderApi.Tests.ApiTests.DeleteProduct_ReturnsOk" type="ProductOrderApi.Tests.ApiTests" method="DeleteProduct_ReturnsOk" time="2.0433043" result="Pass">
+        <traits />
+      </test>
+      <test name="ProductOrderApi.Tests.ApiTests.GetProduct_ReturnsNotFound" type="ProductOrderApi.Tests.ApiTests" method="GetProduct_ReturnsNotFound" time="0.1161630" result="Pass">
+        <traits />
+      </test>
+      <test name="ProductOrderApi.Tests.ApiTests.UpdateProduct_ReturnsNotFound" type="ProductOrderApi.Tests.ApiTests" method="UpdateProduct_ReturnsNotFound" time="0.0958543" result="Pass">
+        <traits />
+      </test>
+      <test name="ProductOrderApi.Tests.ApiTests.GetOrders_ReturnsOk" type="ProductOrderApi.Tests.ApiTests" method="GetOrders_ReturnsOk" time="0.1351232" result="Pass">
+        <traits />
+      </test>
+      <test name="ProductOrderApi.Tests.ApiTests.UpdateProduct_ReturnsBadRequest" type="ProductOrderApi.Tests.ApiTests" method="UpdateProduct_ReturnsBadRequest" time="0.0170921" result="Fail">
+        <failure>
+          <message>Assert.Equal() Failure
+Expected: BadRequest
+Actual:   NoContent</message>
+          <stack-trace>   at ProductOrderApi.Tests.ApiTests.UpdateProduct_ReturnsBadRequest() in /projects/challenge/ProductOrderApi.Tests/ApiTests.cs:line 102
+--- End of stack trace from previous location ---</stack-trace>
+        </failure>
+        <traits />
+      </test>
+      <test name="ProductOrderApi.Tests.ApiTests.UpdateProduct_ReturnsOk" type="ProductOrderApi.Tests.ApiTests" method="UpdateProduct_ReturnsOk" time="0.0302081" result="Fail">
+        <failure>
+          <message>System.Net.Http.HttpRequestException : Response status code does not indicate success: 500 (Internal Server Error).</message>
+          <stack-trace>   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ProductOrderApi.Tests.ApiTests.UpdateProduct_ReturnsOk() in /projects/challenge/ProductOrderApi.Tests/ApiTests.cs:line 77
+--- End of stack trace from previous location ---</stack-trace>
+        </failure>
+        <traits />
+      </test>
+      <test name="ProductOrderApi.Tests.ApiTests.AddProduct_ReturnsOk" type="ProductOrderApi.Tests.ApiTests" method="AddProduct_ReturnsOk" time="0.0102960" result="Pass">
+        <traits />
+      </test>
+      <test name="ProductOrderApi.Tests.ApiTests.GetProduct_ReturnsOk" type="ProductOrderApi.Tests.ApiTests" method="GetProduct_ReturnsOk" time="0.0036919" result="Pass">
+        <traits />
+      </test>
+      <test name="ProductOrderApi.Tests.ApiTests.UpdateOrder_ReturnsBadRequest" type="ProductOrderApi.Tests.ApiTests" method="UpdateOrder_ReturnsBadRequest" time="0.0519486" result="Fail">
+        <failure>
+          <message>Assert.Equal() Failure
+Expected: BadRequest
+Actual:   NoContent</message>
+          <stack-trace>   at ProductOrderApi.Tests.ApiTests.UpdateOrder_ReturnsBadRequest() in /projects/challenge/ProductOrderApi.Tests/ApiTests.cs:line 185
+--- End of stack trace from previous location ---</stack-trace>
+        </failure>
+        <traits />
+      </test>
+      <test name="ProductOrderApi.Tests.ApiTests.GetOrder_ReturnsNotFound" type="ProductOrderApi.Tests.ApiTests" method="GetOrder_ReturnsNotFound" time="0.0085213" result="Pass">
+        <traits />
+      </test>
+      <test name="ProductOrderApi.Tests.ApiTests.GetProducts_ReturnsOk" type="ProductOrderApi.Tests.ApiTests" method="GetProducts_ReturnsOk" time="0.0189881" result="Pass">
+        <traits />
+      </test>
+      <test name="ProductOrderApi.Tests.ApiTests.DeleteOrder_ReturnsNoContent" type="ProductOrderApi.Tests.ApiTests" method="DeleteOrder_ReturnsNoContent" time="0.0209215" result="Pass">
+        <traits />
+      </test>
+      <test name="ProductOrderApi.Tests.ApiTests.DeleteOrder_ReturnsNotFound" type="ProductOrderApi.Tests.ApiTests" method="DeleteOrder_ReturnsNotFound" time="0.0026738" result="Pass">
+        <traits />
+      </test>
+      <test name="ProductOrderApi.Tests.ApiTests.UpdateOrder_ReturnsNoContent" type="ProductOrderApi.Tests.ApiTests" method="UpdateOrder_ReturnsNoContent" time="0.0070306" result="Fail">
+        <failure>
+          <message>System.Net.Http.HttpRequestException : Response status code does not indicate success: 500 (Internal Server Error).</message>
+          <stack-trace>   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at ProductOrderApi.Tests.ApiTests.UpdateOrder_ReturnsNoContent() in /projects/challenge/ProductOrderApi.Tests/ApiTests.cs:line 173
+--- End of stack trace from previous location ---</stack-trace>
+        </failure>
+        <traits />
+      </test>
+      <test name="ProductOrderApi.Tests.ApiTests.GetOrder_ReturnsOk" type="ProductOrderApi.Tests.ApiTests" method="GetOrder_ReturnsOk" time="0.0033786" result="Pass">
+        <traits />
+      </test>
+      <test name="ProductOrderApi.Tests.ApiTests.AddOrder_ReturnsOk" type="ProductOrderApi.Tests.ApiTests" method="AddOrder_ReturnsOk" time="0.0291884" result="Pass">
+        <traits />
+      </test>
+    </collection>
+  </assembly>
+</assemblies>
