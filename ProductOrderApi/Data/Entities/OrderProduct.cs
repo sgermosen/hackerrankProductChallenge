@@ -11,6 +11,6 @@ namespace ProductOrderApi.Data.Entities
         public decimal Price { get; set; }
         [JsonIgnore]
         public Order Order { get; set; }
-        public Product Product { get; set; }
+        [JsonIgnore] public Product Product { get; set; }
     }
 }

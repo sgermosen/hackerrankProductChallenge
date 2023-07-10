@@ -34,6 +34,15 @@ namespace ProductOrderApi.Data.Repositories
             {
                 return null;
             }
+            try
+            {
+                _context.Products.Update(product);
+                await _context.SaveChangesAsync();
+            } 
+            catch (Exception ex)
+            {
+                throw;
+            }
             _context.Products.Update(product);
             await _context.SaveChangesAsync();
             return product;

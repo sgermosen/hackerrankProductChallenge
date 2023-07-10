@@ -1,15 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
+//using Newtonsoft.Json;
 using ProductOrderApi.Data.Entities;
 using ProductOrderApi.Data.Models;
 using ProductOrderApi.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ProductOrderApi.Tests
 {

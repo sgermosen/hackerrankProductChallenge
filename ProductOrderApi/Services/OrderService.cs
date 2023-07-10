@@ -24,27 +24,43 @@ namespace ProductOrderApi.Services
         }
         public async Task<Order> CreateOrder(CreateOrderModel order)
         {
-           var newOrder = new Order();
-           newOrder.OrderDate = System.DateTime.Now;
-         
-        decimal totalPrice =0;
-        var oderDetails = new List<ProductOrderApi.Data.Entities.OrderProduct>();
-           foreach  (var item in order.OrderProducts) 
-           {
-             var product = await _productRepository.GetProduct(item.ProductId);
-             if(product != null)
-             {
-              totalPrice += product.Price * item.Quantity;
-              oderDetails.Add(new ProductOrderApi.Data.Entities.OrderProduct {
-               ProductId = product.Id, 
-               Quantity = item.Quantity,
-               Price = product.Price 
-             });
-             }  
-           }
-          //newOrder.OrderProducts.Add(oderDetails);
-           newOrder.TotalPrice = totalPrice;
-             return await _orderRepository.CreateOrderAsync(newOrder);
+            try
+            {
+
+
+                var newOrder = new Order {
+                    OrderProducts = new List<OrderProduct>()
+                };
+                newOrder.OrderDate = System.DateTime.Now;
+
+                decimal totalPrice = 0;
+                //var oderDetails = new List<OrderProduct>();
+                foreach (var item in order.OrderProducts)
+                {
+                    var product = await _productRepository.GetProduct(item.ProductId);
+                    if (product != null)
+                    {
+                        totalPrice += product.Price * item.Quantity;
+                        newOrder.OrderProducts.Add(new OrderProduct
+                        {
+                            ProductId = product.Id,
+                            Quantity = item.Quantity,
+                            Price = product.Price
+                        });
+                    }
+                }
+                //newOrder.OrderProducts = new List<OrderProduct>
+                //{
+                //    oderDetails
+                //};
+                newOrder.TotalPrice = totalPrice;
+                return await _orderRepository.CreateOrderAsync(newOrder);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
         public async Task<Order> UpdateOrder(Order order)
         {

@@ -3,12 +3,27 @@ using ProductOrderApi.Data;
 using ProductOrderApi.Data.Repositories;
 using ProductOrderApi.Helpers;
 using ProductOrderApi.Services;
+using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+    })
+//    .AddJsonOptions(options =>
+//{
+//    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+//})
+    ;
+//builder.Services.AddControllers()
+//    .AddNewtonsoftJson(options =>
+//        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+//    );
+
 builder.Services.AddDbContext<OrderContext>(options =>
     options.UseInMemoryDatabase("OrderDB"));
 builder.Services.AddScoped<ProductService>();
