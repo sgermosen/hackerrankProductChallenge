@@ -13,11 +13,13 @@ namespace ProductOrderApi.Controllers
         {
             _productService = productService;
         }
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
             return Ok(await _productService.GetProducts());
         }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
@@ -26,26 +28,24 @@ namespace ProductOrderApi.Controllers
                 return NotFound();
             return Ok(product);
         }
+
         [HttpPost]
         public async Task<ActionResult<Product>> AddProduct(Product product)
         {
             return Ok(await _productService.AddProduct(product));
-
         }
+
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateProduct(int id, Product product)
-        {
-            //var productDb = await _productService.GetProduct(id);
-            //if (productDb == null)
-            //    return NotFound();
+        { 
             if (id != product.Id)
                 return BadRequest();
             var updatedProduct = await _productService.UpdateProduct(product);
             if (updatedProduct == null)
                 return NotFound();
-            return NoContent();
-
+            return NoContent(); 
         }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {

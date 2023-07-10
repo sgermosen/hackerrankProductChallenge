@@ -33,16 +33,7 @@ namespace ProductOrderApi.Data.Repositories
             if(!await _context.Products.AnyAsync(p => p.Id == product.Id))
             {
                 return null;
-            }
-            try
-            {
-                _context.Products.Update(product);
-                await _context.SaveChangesAsync();
             } 
-            catch (Exception ex)
-            {
-                throw;
-            }
             _context.Products.Update(product);
             await _context.SaveChangesAsync();
             return product;

@@ -14,11 +14,13 @@ namespace ProductOrderApi.Controllers
         {
             _orderService = orderService;
         }
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
         {
             return Ok(await _orderService.GetOrders());
         }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<Order>> GetOrder(int id)
         {
@@ -27,25 +29,24 @@ namespace ProductOrderApi.Controllers
                 return NotFound();
             return Ok(orderDb);
         }
+
         [HttpPost]
         public async Task<ActionResult<Order>> AddOrder(CreateOrderModel model)
         {
             return Ok(await _orderService.CreateOrder(model));
-
         }
+
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateOrder(int id, Order order)
         {
-            //var orderDb = await _orderService.GetOrder(id);
-            //if (orderDb == null)
-            //    return NotFound();
             if (id != order.Id)
                 return BadRequest();
             var oderUpdated = await _orderService.UpdateOrder(order);
-            if(oderUpdated == null)
+            if (oderUpdated == null)
                 return BadRequest();
             return NoContent();
         }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOrder(int id)
         {
